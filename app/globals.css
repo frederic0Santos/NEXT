@@ -30,7 +30,7 @@ body {
   justify-content: center;
   align-items: center;
 
-  background: url('https://pixabay.com/get/g8194fdfc9050c62da7e4019aa09cb32340835d75c69aceba7e81ec44e86b00cb904af95bb6f79e087afd2890ca52600d.jpg');
+  background: url('/background.jpg');
   background-position: center; 
   background-size: cover;
 
