@@ -38,7 +38,7 @@ body {
 
 .main2 {
   width: 320px;
-  height: 800px;
+  height: auto;
   padding: 20px;
   border-radius: 20px;
   background-color: rgba(54, 54, 54, 0.7);
