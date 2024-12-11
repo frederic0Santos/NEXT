@@ -3,7 +3,7 @@ import React from "react";
 export default function Page() {
   return (
     <>
-      <article className="container">
+      <article className="main2">
         <h1 className="header2">
           Bem-vindo ao meu primeiro passo com React e Next.js! 🚀
         </h1>

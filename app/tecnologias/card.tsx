@@ -13,14 +13,14 @@ export default function Card({
         <img
           src={image}
           alt={title}
-          className="w-full h-36 object-contain"
+          className="w-full h-60 object-contain"
         />
       </article>
       <article className="p-4 flex-grow">
-        <h2 className="text-lg font-bold text-gray-800">
+        <h2 className="text-lg font-bold text-red-300">
           {title}
         </h2>
-        <p className="text-sm text-gray-600">
+        <p className="text-sm text-gray-900">
           {description}
         </p>
       </article>

@@ -4,9 +4,9 @@ import Link from 'next/link'
 export default function Header() {
   return (
     <header className="p-5 bg-transparent text-white font-bold">
-      <h1 className="mb-4 text-4xl text-center">React & Next.js</h1>
+      <h1 className="mb-4 text-5xl text-center">React & Next.js</h1>
       <nav className="w-full flex justify-center">
-        <ul className="flex space-x-8">
+        <ul className="flex space-x-8 text-[1.375rem]">
           <li className="transition-transform duration-200 hover:scale-105">
             <Link href="/" className="text-white no-underline hover:underline">
               Home →

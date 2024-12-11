@@ -5,6 +5,7 @@ import useSWR from 'swr';
 import Card from './card'; 
 import { Product } from '../models/interfaces';
 
+
 export default function Page() {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
   const { data, error, isLoading } = useSWR<Product[], Error>('api/products', fetcher);
@@ -22,10 +23,9 @@ export default function Page() {
   if (!data) return <>No data available</>;
 
   return (
-    <section className="container py-8">
-      <h1 className="text-3xl font-bold text-gray-800 mb-8">Produtos</h1>
-      {/* Ajustei o gap para 'gap-6' para reduzir o espaçamento entre os cards */}
-      <article className="gap-80 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5">
+    <section className="container mx-auto px-4 py-8">
+      <h1 className="text-3xl font-bold text-white mb-8 text-center">Produtos</h1>
+      <article className="gap-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4">
         {data.map((product) => (
           <Card
             key={product.id}
