@@ -1,6 +1,6 @@
 "use client";
 
-import React, { useEffect } from 'react';
+import React from 'react';
 import useSWR from 'swr';
 import Card from './card'; 
 import { Product } from '../models/interfaces';
