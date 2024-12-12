@@ -10,14 +10,6 @@ export default function Page() {
   const fetcher = (url: string) => fetch(url).then((res) => res.json());
   const { data, error, isLoading } = useSWR<Product[], Error>('api/products', fetcher);
 
-  useEffect(() => {
-    document.body.classList.add('home-body');
-
-    return () => {
-      document.body.classList.remove('home-body');
-    };
-  }, []);
-
   if (error) return <>Failed to load</>;
   if (isLoading) return <>Loading...</>;
   if (!data) return <>No data available</>;
