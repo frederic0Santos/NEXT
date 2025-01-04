@@ -127,7 +127,7 @@ export default function Page() {
 
   return (
     <section className="container mx-auto px-4 py-8">
-      <h2 className="text-3xl font-bold text-white mb-8 text-center">Bem vindo a nossa loja!</h2>
+      <h2 className="text-3xl font-bold text-white mb-8 text-center">Bem-vindo à nossa loja!</h2>
       <FilterBar
         onCategoryChange={setCategory}
         onSortChange={setSortType}
