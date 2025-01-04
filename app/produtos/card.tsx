@@ -37,7 +37,7 @@ export default function Card({ addToCart, ... props }: CardProps) {
         </span>
         <article className="text-sm text-yellow-500 flex items-center">
           {props.rating.rate}⭐{" "}
-          <span className="text-gray-400 ml-2">({props.rating.count})</span>
+          <span className="text-gray-700 ml-2">({props.rating.count})</span>
         </article>
       </article>
       <div className="px-4 py-2 flex justify-center">

@@ -87,10 +87,12 @@ export default function Page() {
   };
 
   const handlePurchase = () => {
+    const productIds = cartItems.flatMap((item) => Array(item.quantity).fill(item.id));
+
     fetch('https://deisishop.pythonanywhere.com/buy/', {
       method: 'POST',
       body: JSON.stringify({
-        products: cartItems.map((item) => item.id),
+        products: productIds,
         student: isStudent,
         coupon: coupon,
         name: name,
@@ -101,7 +103,6 @@ export default function Page() {
     })
       .then(response => response.json())
       .then((dados) => {
-        
         setPurchaseResult({
           totalCost: dados.totalCost,
           reference: dados.reference,
@@ -145,7 +146,6 @@ export default function Page() {
         cartItemCount={cartItems.length}
       />
 
-    
       <Cart
         isOpen={isCartOpen}
         onClose={() => setIsCartOpen(false)}
@@ -156,7 +156,6 @@ export default function Page() {
         handlePurchase={() => setIsPurchaseModalOpen(true)} 
       />
 
-  
       {isPurchaseModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center">
           <div className="bg-white rounded-lg p-6 max-w-lg w-full max-h-[80vh] overflow-y-auto">
@@ -172,7 +171,7 @@ export default function Page() {
                 />
               </div>
               <div className="mb-4">
-                <label className="block text-sm font-medium text-gray-900 ">Cupom de Desconto:</label>
+                <label className="block text-sm font-medium text-gray-900">Cupom de Desconto:</label>
                 <input
                   type="text"
                   value={coupon}
@@ -213,13 +212,12 @@ export default function Page() {
       {purchaseResult.reference && (
         <div className="mt-6 p-4 border border-gray-900 bg-white rounded-lg">
           <h3 className="text-xl font-bold text-black">Compra Finalizada!</h3>
-          <p className='mt-3 text-black'><strong>Total:</strong> {purchaseResult.totalCost}€</p>
-          <p className='mt-3 text-black'><strong>Referência:</strong> {purchaseResult.reference}</p>
-          <p className='mt-3 p-3 border border-x-8 border-y-2 text-center border-gray-900 bg-gray-100 rounded-lg shadow-2xl text-black'><strong>{purchaseResult.message}</strong></p>
+          <p className="mt-3 text-black"><strong>Total:</strong> {purchaseResult.totalCost}€</p>
+          <p className="mt-3 text-black"><strong>Referência:</strong> {purchaseResult.reference}</p>
+          <p className="mt-3 p-3 border border-x-8 border-y-2 text-center border-gray-900 bg-gray-100 rounded-lg shadow-2xl text-black"><strong>{purchaseResult.message}</strong></p>
         </div>
       )}
 
-    
       {purchaseResult.error && (
         <div className="mt-6 p-4 border border-gray-900 bg-white rounded-lg">
           <p className="text-red-600">{purchaseResult.error}</p>
